@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Ebelechukwu Lucy Okafor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">ELO</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <h1>My <span style="color:var(--gold)">Projects</span></h1>
+  <p>Real work. Real infrastructure. Real results. Every project below was built hands-on during my DevOps Micro Internship and independent study.</p>
+</div>
+
+<section>
+  <div style="display:grid; gap:2rem;">
+
+    <!-- PROJECT 1 -->
+    <div class="card" style="max-width:100%;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span class="card-icon">🐳</span>
+          <h3 style="font-size:1.4rem; color:var(--white); margin-bottom:0.3rem;">Spring PetClinic Microservices — Docker & Compose</h3>
+          <p style="color:var(--gold); font-size:0.9rem; margin-bottom:1rem;">DMI Cohort 2 — Team Project (App / Docker Lead) + Personal Deployment</p>
+        </div>
+      </div>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Situation:</strong> An 8-service Spring Boot microservices application needed to be containerised, built, and deployed with full observability — by a team of 11 engineers working across 6 disciplines.</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Action:</strong> As App/Docker Lead I wrote multi-stage Dockerfiles for all 8 services, built images using the Maven buildDocker profile targeting linux/amd64 for AWS EKS compatibility, fixed a YAML syntax error in docker-compose.yml, implemented proper healthcheck-based startup ordering, and tagged all images with Git SHA for traceability. I also set up the full observability stack — Prometheus scraping metrics every 15 seconds, Grafana dashboards, and Zipkin distributed tracing.</p>
+      <p style="color:var(--grey); margin-bottom:1.5rem;"><strong style="color:var(--white);">Result:</strong> All 8 Docker images built successfully for linux/amd64. Full stack deployed with one command: docker compose up -d. All 11 containers running healthy including Prometheus, Grafana, and Zipkin. Images pushed to AWS ECR for Kubernetes deployment.</p>
+      <div class="card-tags">
+        <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">Maven</span>
+        <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Zipkin</span>
+        <span class="tag">AWS ECR</span><span class="tag">linux/amd64</span><span class="tag">Git SHA Tagging</span>
+      </div>
+      <a href="https://github.com/Lucycloud2024/spring-petclinic-microservices" class="card-link" target="_blank">View on GitHub →</a>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="card" style="max-width:100%;">
+      <span class="card-icon">☸️</span>
+      <h3 style="font-size:1.4rem; color:var(--white); margin-bottom:0.3rem;">Kubernetes Fundamentals Lab</h3>
+      <p style="color:var(--gold); font-size:0.9rem; margin-bottom:1rem;">Week 13 — DMI Cohort 2 Assignment</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Situation:</strong> Needed to demonstrate practical knowledge of core Kubernetes concepts — Pods, ReplicaSets, Deployments, autoscaling, and health probes — in a local cluster environment.</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Action:</strong> Created a kind cluster (dev-cluster) using kindest/node:v1.31.0 on WSL2 after resolving a kubelet startup failure caused by systemd not being enabled. Deployed Pods using both imperative and declarative methods. Created ReplicaSets with auto-healing demonstration. Built Deployments with RollingUpdate strategy, performed live image upgrades from nginx:1.21.1 to nginx:1.23.1, and executed rollbacks. Configured Horizontal Pod Autoscaler targeting 50% CPU with metrics-server. Added readiness and liveness probes and verified their behaviour by intentionally breaking and fixing them.</p>
+      <p style="color:var(--grey); margin-bottom:1.5rem;"><strong style="color:var(--white);">Result:</strong> Successfully demonstrated all K8s concepts with screenshot evidence. Resolved 2 critical errors (kubelet cgroup issue, kind node image version incompatibility). NodePort and LoadBalancer services configured and tested.</p>
+      <div class="card-tags">
+        <span class="tag">Kubernetes</span><span class="tag">kind</span><span class="tag">kubectl</span>
+        <span class="tag">HPA</span><span class="tag">Health Probes</span><span class="tag">WSL2</span>
+        <span class="tag">Rolling Updates</span><span class="tag">NodePort</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="card" style="max-width:100%;">
+      <span class="card-icon">🚀</span>
+      <h3 style="font-size:1.4rem; color:var(--white); margin-bottom:0.3rem;">EpicBook Production Deployment — Azure DevOps</h3>
+      <p style="color:var(--gold); font-size:0.9rem; margin-bottom:1rem;">Week 11 — Azure CI/CD Pipeline Project</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Situation:</strong> Deploy a Node.js bookstore web application (EpicBook) to Azure with fully automated infrastructure provisioning and application deployment pipelines.</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Action:</strong> Built two Azure DevOps pipelines — one for infrastructure (Terraform) and one for application deployment (Ansible). Terraform provisioned a VM (Standard_D2s_v3), MySQL database, and networking resources. Ansible playbook handled application configuration, dependency installation, and service startup. Fixed multiple pipeline errors including SPN authentication issues, backend.tf variable restrictions, and Nginx port configuration conflicts. Seeded the database with 54 books via SQL scripts.</p>
+      <p style="color:var(--grey); margin-bottom:1.5rem;"><strong style="color:var(--white);">Result:</strong> Application live at public IP with Nginx reverse proxy. MySQL database running with persistent data. Complete CI/CD automation from code commit to production deployment.</p>
+      <div class="card-tags">
+        <span class="tag">Azure DevOps</span><span class="tag">Terraform</span><span class="tag">Ansible</span>
+        <span class="tag">CI/CD</span><span class="tag">Nginx</span><span class="tag">MySQL</span><span class="tag">Node.js</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="card" style="max-width:100%;">
+      <span class="card-icon">📊</span>
+      <h3 style="font-size:1.4rem; color:var(--white); margin-bottom:0.3rem;">Observability Stack — Prometheus, Grafana, Zipkin</h3>
+      <p style="color:var(--gold); font-size:0.9rem; margin-bottom:1rem;">EPIC-5 — DMI Cohort 2 Observability Track</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Situation:</strong> The Spring PetClinic team needed full observability — metrics collection, dashboard visualisation, distributed tracing, authentication enforcement, and alerting rules.</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Action:</strong> Configured Prometheus to scrape all 5 petclinic service endpoints every 15 seconds. Verified Grafana pre-provisioned dashboard showing live metrics. Configured Zipkin to receive distributed traces from all services via MANAGEMENT_ZIPKIN_TRACING_ENDPOINT. Enforced Grafana authentication by setting GF_AUTH_ANONYMOUS_ENABLED=false — verified with curl returning HTTP 401 without credentials. Created alert.rules.yml with PetClinicServiceDown, HighErrorRate, and SlowResponseTime alerts. Rebuilt Prometheus image with rules and tested by stopping vets-service — alert fired within 30 seconds.</p>
+      <p style="color:var(--grey); margin-bottom:1.5rem;"><strong style="color:var(--white);">Result:</strong> All 5 OBS tasks completed. Prometheus showing all targets UP. Grafana dashboard with live graphs. Zipkin traces visible across 4 services. Alerts firing correctly on service failure.</p>
+      <div class="card-tags">
+        <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Zipkin</span>
+        <span class="tag">Alerting</span><span class="tag">Distributed Tracing</span><span class="tag">Metrics</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 5 -->
+    <div class="card" style="max-width:100%;">
+      <span class="card-icon">🐋</span>
+      <h3 style="font-size:1.4rem; color:var(--white); margin-bottom:0.3rem;">Docker Multi-Stage Build — EpicBook Node.js App</h3>
+      <p style="color:var(--gold); font-size:0.9rem; margin-bottom:1rem;">Week 12 — Docker Capstone Assignment</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Situation:</strong> Containerise a Node.js bookstore application with a MySQL backend using Docker best practices including multi-stage builds, network isolation, named volumes, and health checks.</p>
+      <p style="color:var(--grey); margin-bottom:1rem;"><strong style="color:var(--white);">Action:</strong> Built a multi-stage Dockerfile that used a Node.js build stage and a lightweight runtime stage to reduce image size. Created a docker-compose.yml with a frontend network, backend network, named volumes for MySQL persistence, health checks for database readiness, and Nginx as a reverse proxy routing traffic from port 80 to the Node.js application on port 3000. Fixed v1 vs v2 docker-compose syntax issues and resolved port 80 conflicts.</p>
+      <p style="color:var(--grey); margin-bottom:1.5rem;"><strong style="color:var(--white);">Result:</strong> Application running with three-tier architecture — Nginx proxy, Node.js app, MySQL database — all in isolated containers. Data persisted across restarts. Database seeded with 54 books.</p>
+      <div class="card-tags">
+        <span class="tag">Docker</span><span class="tag">Multi-Stage Build</span><span class="tag">Nginx</span>
+        <span class="tag">MySQL</span><span class="tag">Docker Compose</span><span class="tag">Node.js</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Designed & Built by <span>Ebelechukwu Lucy Okafor</span> &copy; 2026 &nbsp;|&nbsp;
+  <a href="mailto:ebelechukwulucyokafor@gmail.com" style="color:var(--gold);">ebelechukwulucyokafor@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
