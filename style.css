@@ -4,14 +4,17 @@
    ============================================ */
 
 :root {
-  --navy: #0a1628;
-  --navy-light: #112240;
-  --navy-card: #1a2f4e;
-  --gold: #f5a623;
-  --gold-light: #ffc04d;
+  --navy: #1a1a2e;
+  --navy-light: #16213e;
+  --navy-card: #0f3460;
+  --gold: #e2b96f;
+  --gold-light: #f0d080;
   --white: #ffffff;
-  --grey: #8892b0;
-  --light: #ccd6f6;
+  --grey: #a8b2c8;
+  --light: #e8edf5;
+  --bg-main: #12121f;
+  --bg-card: #1e1e35;
+  --bg-section: #161625;
   --font: 'Segoe UI', Arial, sans-serif;
 }
 
@@ -21,7 +24,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font);
-  background: var(--navy);
+  background: var(--bg-main);
   color: var(--light);
   font-size: 16px;
   line-height: 1.7;
