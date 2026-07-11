@@ -205,8 +205,8 @@ section {
 }
 
 .card {
-  background: var(--navy-card);
-  border: 1px solid rgba(245,166,35,0.15);
+  background: var(--bg-card);
+  border: 1px solid rgba(226,185,111,0.15);
   border-radius: 10px;
   padding: 2rem;
   transition: transform 0.3s, border-color 0.3s;
@@ -266,8 +266,8 @@ section {
 }
 
 .skill-group {
-  background: var(--navy-card);
-  border: 1px solid rgba(245,166,35,0.15);
+  background: var(--bg-card);
+  border: 1px solid rgba(226,185,111,0.15);
   border-radius: 10px;
   padding: 1.5rem;
 }
