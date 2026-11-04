@@ -489,3 +489,16 @@ footer span { color: var(--gold); }
   .cert-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Zen Pharma project block */
+.zp { background: var(--bg-card); border: 1px solid rgba(226,185,111,0.3); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+.zp h3 { color: var(--white); font-size: 1.3rem; margin-bottom: .75rem; }
+.zp h4 { color: var(--gold); font-size: .95rem; text-transform: uppercase; letter-spacing: 2px; margin: 1.5rem 0 .75rem; }
+.zp p, .zp li { color: var(--light); line-height: 1.8; }
+.zp ul { padding-left: 1.2rem; }
+.zp .card-tags { margin: 1rem 0; }
+.zp figure { margin: 1.5rem 0; }
+.zp img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid rgba(226,185,111,0.3); }
+.zp figcaption { color: var(--grey); font-size: .85rem; margin-top: .5rem; }
+.zp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.zp-links a { color: var(--gold); margin-right: 1.25rem; }

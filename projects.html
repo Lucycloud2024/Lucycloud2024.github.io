@@ -509,6 +509,70 @@
 
   </div>
 
+  <article class="zp" id="zen-pharma">
+  <h3>☸️ Zen Pharma: Secure GitOps Deployment on AWS EKS</h3>
+  <p>
+    Deployed a nine-service medicine-manufacturing platform end to end on Amazon EKS using
+    Terraform, GitHub Actions, ArgoCD and Helm, with security checks at every stage.
+    Sign-up and login ran live behind an AWS load balancer.
+  </p>
+
+  <ul class="zp-tags">
+    <li>AWS EKS</li>
+    <li>Terraform</li>
+    <li>ArgoCD</li>
+    <li>Helm</li>
+    <li>GitHub Actions</li>
+    <li>SonarCloud</li>
+    <li>Trivy</li>
+    <li>Cosign</li>
+  </ul>
+
+  <figure>
+    <img src="images/zen-pharma-dashboard.jpg" alt="Zen Pharma manufacturing portal dashboard running on AWS EKS" loading="lazy">
+    <figcaption>The live portal on EKS behind an AWS Application Load Balancer, signed in as a VIEWER.</figcaption>
+  </figure>
+
+  <h4>What I did</h4>
+  <ul>
+    <li>Provisioned the platform with Terraform: VPC, EKS, RDS PostgreSQL, ECR and IAM (99 resources), with remote state in S3.</li>
+    <li>Built CI/CD with GitHub Actions: tests, a SonarCloud quality gate, Trivy image scans, Cosign signed images, then an automatic image-tag commit to the GitOps repository.</li>
+    <li>Logged GitHub in to AWS with OIDC, so no AWS access keys are stored anywhere.</li>
+    <li>Deployed nine services with ArgoCD and one shared Helm chart.</li>
+    <li>Synced the database and JWT secrets from AWS Secrets Manager with External Secrets.</li>
+    <li>Added a secure sign-up page with unit tests.</li>
+    <li>Destroyed the cluster after every session to control cost.</li>
+  </ul>
+
+  <div class="zp-grid">
+    <figure>
+      <img src="images/zen-pharma-secrets-and-helm.jpg" alt="Terminal showing External Secrets synced and Helm releases deployed" loading="lazy">
+      <figcaption>Secrets synced from AWS Secrets Manager, and ArgoCD, the load balancer controller and External Secrets deployed with Helm.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/zen-pharma-signed-images.jpg" alt="Terminal showing an image tag and its Cosign signature in ECR" loading="lazy">
+      <figcaption>An image tag and its Cosign signature stored in Amazon ECR.</figcaption>
+    </figure>
+  </div>
+
+  <h4>Security findings</h4>
+  <ul>
+    <li>Fixed a mass-assignment bug: registration accepted a client-supplied role. The server now always assigns the lowest role, guarded by a unit test.</li>
+    <li>Found that a VIEWER can still add drugs, so the backend does not enforce roles yet. A fix is planned.</li>
+    <li>Committed a Terraform plan file by mistake, then rotated the secrets and added a pre-commit guard.</li>
+    <li>HIPAA-aligned design for a demo, not a compliance claim.</li>
+  </ul>
+
+  <p class="zp-links">
+    <a href="https://github.com/Lucycloud2024/frontend">Frontend repo</a>
+    <a href="https://github.com/Lucycloud2024/backend">Backend repo</a>
+    <a href="https://github.com/Lucycloud2024/infra">Infra repo</a>
+    <a href="https://github.com/Lucycloud2024/gitops">GitOps repo</a>
+    <!-- Replace this address with your dev.to article link when it is published -->
+    <a href="https://dev.to/">Read the write-up</a>
+  </p>
+</article>
+
   <!-- FOOTER NOTE -->
   <div style="margin-top:3rem; text-align:center; background:var(--bg-card);
   border:1px solid rgba(226,185,111,0.2); border-radius:12px; padding:2.5rem;">
